@@ -30,8 +30,8 @@ export default function About({userData}) {
                 <li className={utilStyles.listItem}>Hobby: {userData.hobby}</li>
                 <li className={utilStyles.listItem}>Phone Number: {userData.phoneNumber}</li>
                 <li className={utilStyles.listItem}>Address: {userData.address}</li>
-                <li className={utilStyles.listItem}>Facebook: {userData.facebook}</li>
-                <li className={utilStyles.listItem}>Github: {userData.github}</li>
+                <li className={utilStyles.listItem}>Facebook: <a href={userData.facebook}>{userData.facebook}</a></li>
+                <li className={utilStyles.listItem}>Github: <a href={userData.github}>{userData.github}</a></li>
                 <li className={utilStyles.listItem}>Email: {userData.email}</li>
             </ul>
         </Layout>
