@@ -1,4 +1,4 @@
-// import styles from './layout.module.css'
+// import styles from './layout.module.css' only use for layout.js
 
 // export default function Layout({children}) {
 //     return <div className={styles.container}>{children}</div>;
@@ -35,7 +35,7 @@ export default function Layout({ children, home }) {
           <>
             <Image
               priority
-              src="/images/profile.jpg"
+              src="/images/MyProfile.jpg"
               className={utilStyles.borderCircle}
               height={144}
               width={144}
@@ -49,7 +49,7 @@ export default function Layout({ children, home }) {
               <a>
                 <Image
                   priority
-                  src="/images/profile.jpg"
+                  src="/images/MyProfile.jpg"
                   className={utilStyles.borderCircle}
                   height={108}
                   width={108}
