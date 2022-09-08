@@ -58,6 +58,7 @@ export function getAllPostIds() {
  * Nguyen Ba Hai
  * 06/09/2022
  * Funtion to get all post data and sort usage for homepage
+ * Modified 08/09/2022
  */
 export function getSortedPostsData() {
   // Get file names under /posts
@@ -76,14 +77,14 @@ export function getSortedPostsData() {
     // Combine the data with the id
     return {
       id,
-      ...matterResult.data,
+      ...(matterResult.data as {date: string; title: string}),
     };
   });
   // Sort posts by date
-  return allPostsData.sort(({ date: a }, { date: b }) => {
-    if (a < b) {
+  return allPostsData.sort((a,b) => {
+    if (a.date < b.date) {
       return 1;
-    } else if (a > b) {
+    } else if (a.date > b.date) {
       return -1;
     } else {
       return 0;
@@ -114,7 +115,7 @@ export async function getPostData(id) {
     return {
       id,
       contentHtml,
-      ...matterResult.data,
+      ...(matterResult.data as { date: string; title: string })
     };
   }
 

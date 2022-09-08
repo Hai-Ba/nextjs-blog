@@ -1,18 +1,19 @@
 //This page code is about my self
 
-import Head from "next/head";
-import Layout from "../components/layout";
-import { getUserData } from "../lib/posts";
-import utilStyles from "/styles/utils.module.css";
+import Head from "next/head"
+import Layout from "../components/layout"
+import { getUserData } from "../lib/posts"
+import utilStyles from "/styles/utils.module.css"
+import { GetStaticProps } from 'next'
 
 //Name, age, study status, Technology use, hobby and contact
 export async function getStaticProps() {
-    const userData = getUserData();
+    const userData = getUserData()
     return {
         props: {
             userData,
         },
-    };
+    }
 }
 
 export default function About({userData}) {
@@ -35,5 +36,5 @@ export default function About({userData}) {
                 <li className={utilStyles.listItem}>Email: {userData.email}</li>
             </ul>
         </Layout>
-    );
+    )
 }
