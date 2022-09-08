@@ -4,7 +4,6 @@ import Head from "next/head"
 import Layout from "../components/layout"
 import { getUserData } from "../lib/posts"
 import utilStyles from "/styles/utils.module.css"
-import { GetStaticProps } from 'next'
 
 //Name, age, study status, Technology use, hobby and contact
 export async function getStaticProps() {

@@ -12,12 +12,12 @@ import Link from 'next/link'
 const name = 'Nguyen Ba Hai'
 export const siteTitle = 'Next.js Sample Website'
 
-export default function Layout({
+export default function Layout({//Named parameters
   children,
   home
 }: {
   children: React.ReactNode
-  home?: boolean
+  home?: boolean //Optional parameter
 }) {
   return (
     <div className={styles.container}>

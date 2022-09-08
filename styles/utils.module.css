@@ -1,4 +1,4 @@
-.headingXl, .heading2Xl {
+.headingXl, .heading2Xl { /*Inherhit,Extend*/
   font-weight: 800;
   letter-spacing: -0.05rem;
   margin: 1rem 0;
@@ -49,4 +49,27 @@
 
 .lightText {
   color: #666;
+}
+
+/*Simple responsive*/
+.content img {
+  height: 100%;
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  /*For tablet*/
+  .content img {
+    height: 100%;
+    width: 100%;
+    content: url("https://www.linkpicture.com/q/download_146.jpg");
+  }
+}
+@media (min-width: 768px) {
+  /*For desktop*/
+  .content img {
+    height: 100%;
+    width: 100%;
+    content: url("https://www.linkpicture.com/q/images-1_13.jpg");
+  }
 }/*# sourceMappingURL=utils.module.css.map */
