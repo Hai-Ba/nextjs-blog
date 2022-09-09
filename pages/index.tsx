@@ -5,6 +5,7 @@ import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts'
 import { GetStaticProps } from 'next'
+import { getApiData } from '../lib/apis'
 
 // export async function getStaticProps() {
 //   const allPostsData = getSortedPostsData();
@@ -16,13 +17,13 @@ import { GetStaticProps } from 'next'
 // }
 
 export default function Home({
-  allPostsData
+  allPostsData,allData
 }: {
   allPostsData: {
     date: string
     title: string
     id: string
-  }[]
+  }[],allData
 }) {
   return (
     <Layout home>
@@ -50,15 +51,31 @@ export default function Home({
           ))}
         </ul>
       </section>
+
+      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+        {/**learn fetch data from API */}
+        <h2 className={utilStyles.headingLg}>Fetch Data Guide</h2>
+            <ul className={utilStyles.list}>
+              <li className={utilStyles.listItem} key={allData.node_id}>
+                <Link href={`/apies/${allData.node_id}`}>
+                  <a>{allData.name}</a>
+                </Link>
+                <br />
+                <Date dateString={allData.pushed_at}></Date>
+              </li>
+            </ul>
+      </section>
     </Layout>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData()
+  const allData = await getApiData();
   return {
     props: {
-      allPostsData
+      allPostsData,
+      allData
     }
   }
 }
