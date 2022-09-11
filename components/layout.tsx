@@ -35,18 +35,23 @@ export default function Layout({//Named parameters
         />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
+        <link rel="stylesheet" href="" />
       </Head>
       <header className={styles.header}>
         {home ? (
           <>
-            <Image
-              priority
-              src="/images/MyProfile.jpg"
-              className={utilStyles.borderCircle}
-              height={144}
-              width={144}
-              alt={name}
-            />
+            <div className={utilStyles.outerCircle}>
+              <div className={utilStyles.innerCircle}>
+              <Image
+                priority
+                src="/images/MyProfile.jpg"
+                className={utilStyles.borderCircle}
+                height={144}
+                width={144}
+                alt={name}
+              />
+              </div>
+            </div>
             <h1 className={utilStyles.heading2Xl}>{name}</h1>
           </>
         ) : (

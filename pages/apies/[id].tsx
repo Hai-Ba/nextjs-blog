@@ -18,9 +18,9 @@ export default function Api({data}) {
               <Date dateString={data.pushed_at} />
             </div>
             <div className={utilStyles.lightText}>
-              <b>API Link:</b> {data.url}
+              <b>API Link:</b> <a href={data.url}>{data.url}</a>
               <br/>
-              <b>Link:</b> {data.html_url}
+              <b>Link:</b> <a href={data.html_url}>{data.html_url}</a>
             </div>
             <div>
               This page is not been render by read file(.md) but from fetch API
