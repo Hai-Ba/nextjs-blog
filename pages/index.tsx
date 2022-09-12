@@ -37,33 +37,37 @@ export default function Home({
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
         </p>
       </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px} `}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <Date dateString={date}></Date>
-            </li>
-          ))}
-        </ul>
+        <div className={`${utilStyles.gradient_border}`}>
+          <ul className={utilStyles.list}>
+            {allPostsData.map(({ id, date, title }) => (
+              <li className={utilStyles.listItem} key={id}>
+                <Link href={`/posts/${id}`}>
+                  <a>{title}</a>
+                </Link>
+                <br />
+                <Date dateString={date}></Date>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
 
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         {/**learn fetch data from API */}
         <h2 className={utilStyles.headingLg}>Fetch Data Guide</h2>
-            <ul className={utilStyles.list}>
-              <li className={utilStyles.listItem} key={allData.node_id}>
-                <Link href={`/apies/${allData.node_id}`}>
-                  <a>{allData.name}</a>
-                </Link>
-                <br />
-                <Date dateString={allData.pushed_at}></Date>
-              </li>
-            </ul>
+        <div className={`${utilStyles.gradient_border}`}>
+          <ul className={utilStyles.list}>
+            <li className={utilStyles.listItem} key={allData.node_id}>
+              <Link href={`/apies/${allData.node_id}`}>
+                <a>{allData.name}</a>
+              </Link>
+              <br />
+              <Date dateString={allData.pushed_at}></Date>
+            </li>
+          </ul>
+        </div>
       </section>
     </Layout>
   )

@@ -88,7 +88,26 @@
   height: 144px;
   width: 144px;
   position: absolute;
-  background: black;
+  top: 8px;
+  left: 8px;
+  border-radius: 50%;
+  z-index: 9;
+}
+
+.outer_circle {
+  position: relative;
+  height: 124px;
+  width: 124px;
+  background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+  border-radius: 50%;
+  animation: rotate 1.5s linear infinite;
+  z-index: 5;
+}
+
+.inner_circle {
+  height: 108px;
+  width: 108px;
+  position: absolute;
   top: 8px;
   left: 8px;
   border-radius: 50%;
@@ -97,12 +116,6 @@
 
 .borderCircle {
   border-radius: 50%;
-  // position: absolute;
-  // background: black;
-  // top: 8px;
-  // left: 8px;
-  
-  // z-index: 10;
 }
 
 @keyframes rotate {
@@ -111,5 +124,47 @@
   }
   100% {
     filter: hue-rotate(360deg);
+  }
+}
+
+.gradient_border {
+  --border-width: 5px;
+  position: relative;
+  width: auto;
+  height: auto;
+  background: #222;
+  color: aliceblue;
+  border-radius: var(--border-width);
+  z-index: 0;
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    z-index: -1;
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+    background: linear-gradient(
+      60deg,
+      hsl(224, 85%, 66%),
+      hsl(269, 85%, 66%),
+      hsl(314, 85%, 66%),
+      hsl(359, 85%, 66%),
+      hsl(44, 85%, 66%),
+      hsl(89, 85%, 66%),
+      hsl(134, 85%, 66%),
+      hsl(179, 85%, 66%)
+    );
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * var(--border-width));
+    animation: moveGradient 5s infinite;
+  }
+}
+
+@keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
   }
 }

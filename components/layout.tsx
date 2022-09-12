@@ -56,18 +56,20 @@ export default function Layout({//Named parameters
           </>
         ) : (
           <>
-            <Link href="/">
-              <a>
-                <Image
-                  priority
-                  src="/images/MyProfile.jpg"
-                  className={utilStyles.borderCircle}
-                  height={108}
-                  width={108}
-                  alt={name}
-                />
-              </a>
-            </Link>
+            <div  className={utilStyles.outer_circle}>
+              <Link href="/">
+                <a className={utilStyles.inner_circle}>
+                  <Image
+                    priority
+                    src="/images/MyProfile.jpg"
+                    className={utilStyles.borderCircle}
+                    height={108}
+                    width={108}
+                    alt={name}
+                  />
+                </a>
+              </Link>
+            </div> 
             <h2 className={utilStyles.headingLg}>
               <Link href="/">
                 <a className={utilStyles.colorInherit}>{name}</a>
